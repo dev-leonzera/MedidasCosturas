@@ -1,8 +1,9 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Home, Login, Create, List, About, Contact, CadastroUser, CadastroCliente } from './views'
+import { Home, Login, About, Contact, CadastroUser} from './screens'
+import { CreateEncomenda, ListEncomenda, MenuEncomenda } from './screens/encomendas'
+import { CreateCliente, ListCliente, MenuCliente } from './screens/clientes'
 
 const Stack = createStackNavigator();
 
@@ -11,13 +12,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" options={{headerShown:false}} component={Home} />
-        <Stack.Screen name="Login" options={{headerShown:false}} component={Login} />
-        <Stack.Screen name="Create" options={{headerShown:false}} component={Create} />
-        <Stack.Screen name="Encomendas" options={{headerShown:false}} component={List} />
-        <Stack.Screen name="About" options={{headerShown:false}} component={About} />
-        <Stack.Screen name="Contact" options={{headerShown:false}} component={Contact} />
-        <Stack.Screen name="Cadastro de Usuário" options={{headerShown:false}} component={CadastroUser} />
-        <Stack.Screen name="Cadastro de Cliente" options={{headerShown:false}} component={CadastroCliente} />
+        <Stack.Screen name="Login" options={{headerShown:true}} component={Login} />
+        <Stack.Screen name="Encomendas" options={{headerShown:true}} component={MenuEncomenda} />
+        <Stack.Screen name="Clientes" options={{headerShown:true}} component={MenuCliente} />
+        <Stack.Screen name="Nova Encomenda" options={{headerShown:true}} component={CreateEncomenda} />
+        <Stack.Screen name="Lista de Encomenda" options={{headerShown:true}} component={ListEncomenda} />
+        <Stack.Screen name="Novo Cliente" options={{headerShown:true}} component={CreateCliente} />
+        <Stack.Screen name="Lista de Clientes" options={{headerShown:true}} component={ListCliente} />
+        <Stack.Screen name="About" options={{headerShown:true}} component={About} />
+        <Stack.Screen name="Contact" options={{headerShown:true}} component={Contact} />
+        <Stack.Screen name="Novo Usuário" options={{headerShown:true}} component={CadastroUser} />        
       </Stack.Navigator>
     </NavigationContainer>
   );
